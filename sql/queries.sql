@@ -12,7 +12,7 @@ FROM olist_order_items_dataset oi
 Join olist_orders_dataset o USING (order_id)
 JOIN olist_customers_dataset cu USING (customer_id)
 JOIN olist_products_dataset p USING (product_id)
-JOIN product_category_name_translation t USING (product_category)
-JOIN olist_order_payments_dataset op USING (order_id)
-JOIN olist_order_reviews_dataset r USING (order_id)
+LEFT JOIN product_category_name_translation t USING (product_category)
+LEFT JOIN olist_order_payments_dataset op USING (order_id)
+LEFT JOIN olist_order_reviews_dataset r USING (order_id)
 Where o.order_status = 'delivered';
